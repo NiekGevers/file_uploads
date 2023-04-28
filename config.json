@@ -1,0 +1,181 @@
+{
+    "Excel Columns": {
+        "desired_ip": ["IP_Full", "str"],
+        "timemode": ["TIME_mode", "str"],
+        "NTP_url": ["NTP_url", "str"],
+        "NTP_port": ["NTP_port", "str"],
+        "NTP_interval": ["NTP_interval", "str"],
+        "timeFull": ["TIME_Full", "str"],
+        "res_h": ["VIDEO_resolution_h", "str"],
+        "res_v": ["VIDEO_resolution_v", "str"],
+        "quality": ["VIDEO_qual", "str"],
+        "fps": ["VIDEO_fps", "str"],
+        "bitrate": ["VIDEO_bitrate", "str"],
+        "OSD_color": ["OSD_colour", "str"],
+        "OSD_showdate": ["OSD_showdate", "str"],
+        "OSD_showweek": ["OSD_showweek", "str"],
+        "OSD_x": ["OSD_1_x", "str"],
+        "OSD_y": ["OSD_1_y", "str"],
+        "OSD_showname": ["OSD_showname", "str"],
+        "OSD2_x": ["OSD_2_x", "str"],
+        "OSD2_y": ["OSD_2_y", "str"],
+        "Gateway": ["NETWORK_gateway", "str"],
+        "subnet": ["NETWORK_subnet", "str"],
+        "serverPort": ["PORT_server", "str"]
+    },
+    "Requests": {
+        "Device info": {
+            "isapi address": "/ISAPI/System/DeviceInfo",
+            "Changes": [
+                {
+                    "XML_path": ["DeviceInfo", "deviceName"],
+                    "Excel_Column": "device_name"
+                },
+                {
+                    "XML_path": ["DeviceInfo", "telecontrolID"],
+                    "Excel_Column": "device_number"
+                }
+            ]
+        },
+        "Time": {
+            "isapi address": "/ISAPI/System/time",
+            "Changes": [
+                {
+                    "XML_path": ["Time", "timeMode"],
+                    "Excel_Column": "timemode"
+                },
+                {
+                    "XML_path": ["Time", "timeZone"],
+                    "Excel_Column": "timeFull"
+                }
+            ]
+        },
+        "NTP": {
+            "isapi address": "/ISAPI/System/time/ntpservers",
+            "Changes": [
+                {
+                    "XML_path": ["NTPServerList", "NTPServer", "hostName"],
+                    "Excel_Column": "NTP_url"
+                },
+                {
+                    "XML_path": ["NTPServerList", "NTPServer", "portNo"],
+                    "Excel_Column": "NTP_port"
+                },
+                {
+                    "XML_path": ["NTPServerList", "NTPServer", "synchronizeInterval"],
+                    "Excel_Column": "NTP_interval"
+                }
+            ]
+        },
+        "ports": {
+            "isapi address": "/ISAPI/Security/adminAccesses/3",
+            "Changes": [
+                {
+                    "XML_path": ["AdminAccessProtocol", "portNo"],
+                    "Excel_Column": "serverPort"
+                }
+            ]
+        },
+        "video": {
+            "isapi address": "/ISAPI/Streaming/channels/101",
+            "Changes": [
+                {
+                    "XML_path": ["StreamingChannel", "Video", "videoResolutionWidth"],
+                    "Excel_Column": "res_h"
+                },
+                {
+                    "XML_path": ["StreamingChannel", "Video", "videoResolutionHeight"],
+                    "Excel_Column": "res_v"
+                },
+                {
+                    "XML_path": ["StreamingChannel", "Video", "constantBitRate"],
+                    "Excel_Column": "bitrate"
+                },
+                {
+                    "XML_path": ["StreamingChannel", "Video", "vbrUpperCap"],
+                    "Excel_Column": "bitrate"
+                },
+                {
+                    "XML_path": ["StreamingChannel", "Video", "fixedQuality"],
+                    "Excel_Column": "quality"
+                },
+                {
+                    "XML_path": ["StreamingChannel", "Video", "maxFrameRate"],
+                    "Excel_Column": "fps"
+                }
+            ]
+        },
+        "OSDN": {
+            "isapi address": "/ISAPI/System/Video/inputs/channels/1",
+            "Changes": [
+                {
+                    "XML_path": ["VideoInputChannel", "name"],
+                    "Excel_Column": "Video_name"
+                }
+
+            ]
+        },
+        "OSD": {
+            "isapi address": "/ISAPI/System/Video/inputs/channels/1/overlays",
+            "Changes": [
+                {
+                    "XML_path": ["VideoOverlay", "DateTimeOverlay", "enabled"],
+                    "Excel_Column": "OSD_showdate"
+                },
+                {
+                    "XML_path": ["VideoOverlay", "DateTimeOverlay", "positionX"],
+                    "Excel_Column": "OSD_x"
+                },
+                {
+                    "XML_path": ["VideoOverlay", "DateTimeOverlay", "positionY"],
+                    "Excel_Column": "OSD_y"
+                },
+                {
+                    "XML_path": ["VideoOverlay", "DateTimeOverlay", "displayWeek"],
+                    "Excel_Column": "OSD_showweek"
+                },
+                {
+                    "XML_path": ["VideoOverlay", "channelNameOverlay", "enabled"],
+                    "Excel_Column": "OSD_showname"
+                },
+                {
+                    "XML_path": ["VideoOverlay", "channelNameOverlay", "positionX"],
+                    "Excel_Column": "OSD2_x"
+                },
+                {
+                    "XML_path": ["VideoOverlay", "channelNameOverlay", "positionY"],
+                    "Excel_Column": "OSD2_y"
+                },
+                {
+                    "XML_path": ["VideoOverlay", "frontColorMode"],
+                    "Excel_Column": "frontColorMode"
+                },
+                {
+                    "XML_path": ["VideoOverlay", "frontColor"],
+                    "Excel_Column": "OSD_color"
+                }
+            ]
+        },
+        "network": {
+            "isapi address": "/ISAPI/System/Network/interfaces/1/ipAddress",
+            "Changes": [
+                {
+                    "XML_path": ["IPAddress", "addressingType"],
+                    "Excel_Column": "addressingType"
+                },
+                {
+                    "XML_path": ["IPAddress", "ipAddress"],
+                    "Excel_Column": "desired_ip"
+                },
+                {
+                    "XML_path": ["IPAddress", "subnetMask"],
+                    "Excel_Column": "subnet"
+                },
+                {
+                    "XML_path": ["IPAddress", "DefaultGateway", "ipAddress"],
+                    "Excel_Column": "Gateway"
+                }
+            ]
+        }
+    }
+}
